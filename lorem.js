@@ -1,19 +1,13 @@
 var fs = require('fs');
 var words = fs.readFileSync('db/guunmong.txt').toString().split("\n");
-var words_length = words.length
 var words_dot = fs.readFileSync('db/guunmong-dot.txt').toString().split("\n");
-var words_dot_length = words_dot.length
-
-var length_short = 20;
-var length_medium = 50;
-var length_long  = 80;
 
 var get_random_word = function() {
-  return words[Math.floor(Math.random()*words_length)];
+  return words[Math.floor(Math.random()*words.length)];
 }
 
 var get_random_dot_word = function() {
-  return words_dot[Math.floor(Math.random()*words_dot_length)];
+  return words_dot[Math.floor(Math.random()*words_dot.length)];
 }
 
 var get_random_p = function(length) {
