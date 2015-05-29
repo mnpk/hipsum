@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  div(ng-controller='main_controller').container
+    div.page-header
+      h1 한글 로렘 입숨
+    div.well
+      form.form-horizontal
+        div.form-group
+          label.col-sm-2.control-label 문단 수
+          div.col-sm-10
+            input(type='number' ng-model='query.p').form-control
+        div.form-group
+          label.col-sm-2.control-label 문단 길이
+          div.col-sm-10
+            input(type='number' ng-model='query.l').form-control
+        div.form-group
+          div.col-sm-offset-2.col-sm-10
+            button(ng-click='getLorem()').btn.btn-primary 만들기
+    div.well
+      div(ng-repeat='l in lorem')
+        p {{ l }}
+
+  script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
+  script(src='/javascripts/core.js')
