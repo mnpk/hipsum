@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  div.container
+    div.page-header
+      h2 API
+    h2 JSON
+    p json 형태의 로렘 입숨 문단을 요청하여 받을 수 있다.
+    pre 
+      code GET /api/lorem
+    h3 Parameters
+    table.table.table-bordered
+      tr
+        th 이름
+        th 값
+        th 설명
+      tr
+        td p
+        td int
+        td 문단 수(default: 2)
+      tr
+        td l
+        td int
+        td 문단 길이(default: 20)
+      tr
+        td c
+        td 1 or 0 
+        td ??(default: 0)
+    h3 응답
+    pre
+      code
+        | {
+        |   "result": [ ... ]
+        | }
+      
+    h2 Raw Text
+    p Raw Text의 로렘 입숨 문단을 요청하여 받을 수 있다.
+    pre 
+      code GET /api/lorem.txt
+    h3 Parameters
+    table.table.table-bordered
+      tr
+        th 이름
+        th 값
+        th 설명
+      tr
+        td p
+        td int
+        td 문단 수(default: 2)
+      tr
+        td l
+        td int
+        td 문단 길이(default: 20)
+      tr
+        td c
+        td 1 or 0 
+        td ??(default: 0)
+    h3 응답
+    pre
+      code
+        | ...
