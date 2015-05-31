@@ -1,30 +1,44 @@
 extends layout
 
 block content
+  nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+    div.container
+      div.navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+       a.navbar-brand(href='#') HIPSUM
+      div.navbar-collapse.collapse
+         ul.nav.navbar-nav.navbar-right
+           li
+             a(href='#') 왜죠?
+           li
+             a(href='#about') API
+           li
+             a(href='https://github.com/mnpk/hipsum') github
   div(ng-controller='main_controller').container
     div.page-header
-      h1 한글 로렘 입숨
-    div.well
-      form.form-horizontal
-        div.form-group
-          label.col-sm-2.control-label 문단 수
-          div.col-sm-10
+      h2 한글 로렘 입숨
+    div.panel.panel-transparent.col-sm-4
+      div.panel-body
+        form
+          div.form-group
+            label.control-label 문단 수
             input(type='number' ng-model='query.p' ng-change='getLorem()').form-control
-        div.form-group
-          label.col-sm-2.control-label 문단 길이
-          div.col-sm-10
+          div.form-group
+            label.control-label 문단 길이
             input(type='number' ng-model='query.l' ng-change='getLorem()').form-control
-        div.form-group
-          div.col-sm-offset-2.col-sm-10
+          div.form-group
             div.checkbox
               label
                 input(type='checkbox' ng-model='query.c' ng-true-value='1' ng-false-value='0' ng-change='getLorem()')
-                치킨?
-        div.form-group
-          div.col-sm-offset-2.col-sm-10
+                치킨
+          div.form-group
             button(ng-click='getLorem()').btn.btn-success
               span.glyphicon.glyphicon-repeat  새로고침
-    div.well
+    div.well.col-sm-8
       div(ng-repeat='l in lorem')
         p {{ l }}
 
