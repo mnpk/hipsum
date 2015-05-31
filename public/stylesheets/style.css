@@ -7,8 +7,47 @@ a {
   color: #00B7FF;
 }
 
+.header {
+   background: url(/images/picjumbo.com_IMG_1596.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+h2 {
+  color: #f5f5f5;
+}
 .panel-transparent {
   background: none;
   padding-left: 0;
+  color: #f5f5f5;
   -webkit-box-shadow: none;
+}
+
+.panel-transparent .panel-body {
+  padding-left: 0;
+}
+
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1944;
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1944) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -972px;   /* 50% */
+  }
 }
