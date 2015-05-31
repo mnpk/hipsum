@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  div(id="fb-foot")
+  script(src='/javascripts/fb.js')
   div(ng-controller='main_controller').container
     div.page-header
       h2 한글 로렘 입숨
@@ -21,9 +23,15 @@ block content
           div.form-group
             button(ng-click='getLorem()').btn.btn-success
               span.glyphicon.glyphicon-repeat  새로고침
-    div.well.col-sm-8
-      div(ng-repeat='l in lorem')
-        p {{ l }}
+    div.col-sm-8
+      div.row
+        div.text-right
+          div.fb-like(data-href="http://hipsum.mnpk.org" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true")
+      div.row
+        p
+        div.well
+          div(ng-repeat='l in lorem')
+            p {{ l }}
 
   script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
   script(src='/javascripts/core.js')
