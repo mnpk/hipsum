@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/lorem.json/', function(req, res, next) {
+router.get('/api/lorem/', function(req, res, next) {
   var p = req.query.p;
   if (p === undefined) {
     p = 3;
@@ -16,10 +16,10 @@ router.get('/lorem.json/', function(req, res, next) {
   if (l === undefined) {
     l = 60;
   }
-  res.json(lorem.lorem_json(p, l));
+  res.json(lorem.lorem_json(p, l, req.query.c));
 });
 
-router.get('/lorem.txt/', function(req, res, next) {
+router.get('/api/lorem.txt/', function(req, res, next) {
   var p = req.query.p;
   if (p === undefined) {
     p = 3;
@@ -28,9 +28,8 @@ router.get('/lorem.txt/', function(req, res, next) {
   if (l === undefined) {
     l = 60;
   }
-
   res.type('text/plain');
-  res.send(lorem.lorem(p, l));
+  res.send(lorem.lorem(p, l, req.query.c));
 });
 
 module.exports = router;

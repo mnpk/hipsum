@@ -23,23 +23,33 @@ var get_random_p = function(length) {
   return p;
 }
 
-var get_lorem = function(num_of_p, length_of_p) {
+var get_lorem = function(num_of_p, length_of_p, c) {
   var lorem = [];
   for (var i = 0; i < num_of_p; i++) {
-    lorem.push(get_random_p(length_of_p));
+    var p = get_random_p(length_of_p);
+    if (c == 1) p = chickenize(p);
+    lorem.push(p);
   }
-  return lorem.join('\n\n');
+  return lorem.join('\n');
 }
 
-var get_lorem_json = function(num_of_p, length_of_p) {
+var get_lorem_json = function(num_of_p, length_of_p, c) {
   var lorem = [];
   for (var i = 0; i < num_of_p; i++) {
-    lorem.push(get_random_p(length_of_p));
+    var p = get_random_p(length_of_p);
+    if (c == 1) p = chickenize(p);
+    lorem.push(p);
   }
   return {"result": lorem};
 }
 
+var chickenize = function(str) {
+  return str.replace(/[가-힣][가-힣]/g, '치킨');
+}
+
 module.exports = {
   lorem: get_lorem,
-  lorem_json: get_lorem_json
+  lorem_json: get_lorem_json,
 }
+
+// console.log(chickenize(get_lorem(1, 20)));

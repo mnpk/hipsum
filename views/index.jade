@@ -9,14 +9,21 @@ block content
         div.form-group
           label.col-sm-2.control-label 문단 수
           div.col-sm-10
-            input(type='number' ng-model='query.p').form-control
+            input(type='number' ng-model='query.p' ng-change='getLorem()').form-control
         div.form-group
           label.col-sm-2.control-label 문단 길이
           div.col-sm-10
-            input(type='number' ng-model='query.l').form-control
+            input(type='number' ng-model='query.l' ng-change='getLorem()').form-control
         div.form-group
           div.col-sm-offset-2.col-sm-10
-            button(ng-click='getLorem()').btn.btn-primary 만들기
+            div.checkbox
+              label
+                input(type='checkbox' ng-model='query.c' ng-true-value='1' ng-false-value='0' ng-change='getLorem()')
+                치킨?
+        div.form-group
+          div.col-sm-offset-2.col-sm-10
+            button(ng-click='getLorem()').btn.btn-success
+              span.glyphicon.glyphicon-repeat  새로고침
     div.well
       div(ng-repeat='l in lorem')
         p {{ l }}

@@ -2,12 +2,13 @@ var hipsum = angular.module('hipsum', []);
 
 function main_controller($scope, $http) {
   $scope.query = {
-    p: 3,
-    l: 40
+    p: 2,
+    l: 20,
+    c: 0
   };
 
   $scope.getLorem = function() {
-    var url = '/lorem.json?p=' + $scope.query.p + '&l=' + $scope.query.l
+    var url = '/api/lorem?p=' + $scope.query.p + '&l=' + $scope.query.l + '&c=' + $scope.query.c;
     console.log(url)
     $http.get(url)
     .success(function(data) {
