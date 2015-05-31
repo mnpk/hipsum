@@ -3,7 +3,7 @@ var hipsum = angular.module('hipsum', []);
 function main_controller($scope, $http) {
   $scope.query = {
     p: 2,
-    l: 20,
+    l: 50,
     c: 0
   };
 
