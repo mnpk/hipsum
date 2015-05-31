@@ -7,6 +7,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/about/', function(req, res) {
+  res.render('about', { title: 'About' });
+});
+
 router.get('/api/lorem/', function(req, res, next) {
   var p = req.query.p;
   if (p === undefined) {
