@@ -26,7 +26,11 @@ block content
     div.col-sm-8
       div.row
         div.text-right
-          div.fb-like(data-href="http://hipsum.mnpk.org" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true")
+          div.social-button
+            a.twitter-share-button(href="https://twitter.com/share" data-url="http://hipsum.mnpk.org" data-text="한글로렘입숨" data-lang="ko" data-count="horizontal") 트윗하기
+          div.social-button
+            div.fb-like(data-href="http://hipsum.mnpk.org" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true")
+          script(src='/javascripts/tweet.js')
       div.row
         p
         div.well

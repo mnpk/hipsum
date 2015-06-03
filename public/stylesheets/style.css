@@ -29,3 +29,8 @@ a {
 .well {
   color: #333;
 }
+
+.social-button {
+  margin: 0 3px;
+  float: right;
+}
