@@ -4,15 +4,33 @@ block content
   div.container
     div.page-header
       h2 한글 로렘 입숨 생성기
-    h2 로렘 입숨?
+    p 
+      | 한글로 된 로렘 입숨 텍스트 생성기 입니다. 
+    p
+      a(href="http://hangul.thefron.me/") 한글 입숨
+      | 이나, 
+      a(href="http://guny.kr/stuff/klorem/") 한글 Lorem Ipsum
+      | 등의 사이트와 같은 기능을 제공합니다.
+    p
+      a(href="/api-guide/") API
+      | 를 제공합니다. 터미널에서 
+      code curl -s 'http://hipsum.mnpk.org/api/lorem.txt'
+      | 같은 걸 할 수 있습니다. 
+    p 
+      | 또는 Vim에서 
+      code :read !curl -s 'http://hipsum.mnpk.org/api/lorem.txt'
+      | 명령으로 한글 로렘 입숨 텍스트를 즉시 입력할 수 있습니다.
+    p
+      | 오픈소스입니다. 
+      a(href="https://github.com/mnpk/hipsum") Github 저장소
+      | 에서 이슈를 등록하거나 PR를 보내 기여할 수 있습니다.
+
+    p 
+    h3 로렘 입숨?
     blockquote
       p 로렘 입숨(lorem ipsum; 줄여서 립숨, lipsum)은 출판이나 그래픽 디자인 분야에서 폰트, 타이포그래피, 레이아웃 같은 그래픽 요소나 시각적 연출을 보여줄 때 사용하는 표준 채우기 텍스트로, 최종 결과물에 들어가는 실제적인 문장 내용이 채워지기 전에 시각 디자인 프로젝트 모형의 채움 글로도 이용된다. 이런 용도로 사용할 때 로렘 입숨을 그리킹(greeking)이라고도 부르며, 때로 로렘 입숨은 공간만 차지하는 무언가를 지칭하는 용어로도 사용된다.
       p 로렘 입숨은 전통 라틴어와 닮은 점 때문에 종종 호기심을 유발하기도 하지만 그 이상의 의미를 담지는 않는다. 문서에서 텍스트가 보이면 사람들은 전체적인 프레젠테이션보다는 텍스트에 담긴 뜻에 집중하는 경향이 있어서 출판사들은 서체나 디자인을 보일 때는 프레젠테이션 자체에 초점을 맞추기 위해 로렘 입숨을 사용한다.
       footer
         a(href="http://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8")한국어 위키백과 '로렘 입숨'
 
-    h2 피드백
-    p
-      | Github 저장소의 
-      a(href="https://github.com/mnpk/hipsum/issues") issue 페이지 
-      | 또는, mnncat@gmail.com 으로 보내주세요.
+
