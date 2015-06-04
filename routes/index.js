@@ -37,7 +37,7 @@ router.get('/api/lorem.txt/', function(req, res, next) {
     l = 20;
   }
   res.type('text/plain');
-  res.send(lorem.lorem(p, l, req.query.c));
+  res.send(lorem.lorem_txt(p, l, req.query.c));
 });
 
 module.exports = router;

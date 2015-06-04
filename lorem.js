@@ -2,54 +2,55 @@ var fs = require('fs');
 var words = fs.readFileSync('db/guunmong.txt').toString().split("\n");
 var words_dot = fs.readFileSync('db/guunmong-dot.txt').toString().split("\n");
 
-var get_random_word = function() {
-  return words[Math.floor(Math.random()*words.length)];
+var get_random_word = function(db) {
+  return db[Math.floor(Math.random()*db.length)];
 }
 
-var get_random_dot_word = function() {
-  return words_dot[Math.floor(Math.random()*words_dot.length)];
-}
-
-var get_random_p = function(length) {
+var get_random_p = function(l) {
   var p = [];
-  length = Math.floor(length * (Math.random() / 2 + 1));
-  for (var i = 0; i < length; i++) {
-    p.push(get_random_word());
+
+  // 자연스러운 문장 길이를 위해서 주어진 길이를 기준으로 100% ~ 150% 범위로
+  // 실제 문장 길이를 다시 정한다.
+  l = Math.floor(l * (Math.random() / 2 + 1));
+  for (var i = 0; i < l; i++) {
+    p.push(get_random_word(words));
   }
   p = p.join(' ');
+
+  // 문장이 마침 부호(. 또는 ?)로 끝나지 않을 경우,
+  // 마침 부호로 끝나는 단어를 하나 더 추가해서 문장을 완성한다.
   if (p.substr(-1) !== '.' && p.substr(-1) !== '?') {
-    p = p + ' ' + (get_random_dot_word());
+    p = p + ' ' + (get_random_word(words_dot));
   }
   return p;
 }
 
-var get_lorem = function(num_of_p, length_of_p, c) {
+var get_lorem = function(p, l, c) {
   var lorem = [];
-  for (var i = 0; i < num_of_p; i++) {
-    var p = get_random_p(length_of_p);
-    if (c == 1) p = chickenize(p);
-    lorem.push(p);
+  for (var i = 0; i < p; i++) {
+    var paragraph = get_random_p(l);
+    if (c == 1) paragraph = chickenize(paragraph);
+    lorem.push(paragraph);
   }
-  return lorem.join('\n');
-}
-
-var get_lorem_json = function(num_of_p, length_of_p, c) {
-  var lorem = [];
-  for (var i = 0; i < num_of_p; i++) {
-    var p = get_random_p(length_of_p);
-    if (c == 1) p = chickenize(p);
-    lorem.push(p);
-  }
-  return {"result": lorem};
+  return lorem;
 }
 
 var chickenize = function(str) {
+  // 치킨치킨
   return str.replace(/[가-힣][가-힣]/g, '치킨');
 }
 
+var get_lorem_json = function(p, l, c) {
+  return {"result": get_lorem(p, l, c)};
+}
+
+var get_lorem_txt = function(p, l, c) {
+  return get_lorem(p, l, c).join('\n');
+}
+
+
 module.exports = {
-  lorem: get_lorem,
+  lorem_txt: get_lorem_txt,
   lorem_json: get_lorem_json,
 }
 
-// console.log(chickenize(get_lorem(1, 20)));
