@@ -26,6 +26,7 @@ GET /api/lorem
 ```
 
 ##### Parameters
+
 |이름|값|설명|
 |----|--|----|
 |p|int|문단 수 (기본: 2)|
@@ -35,7 +36,7 @@ GET /api/lorem
 ##### Response
 ```json
 {
-  "result": [ ... ]
+  "result": ["example", "example"]
 }
 ``` 
 
@@ -45,6 +46,7 @@ GET /api/lorem.txt
 ```
 
 ##### Parameters
+
 |이름|값|설명|
 |----|--|----|
 |p|int|문단 수 (기본: 2)|
