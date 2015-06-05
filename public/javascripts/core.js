@@ -7,7 +7,8 @@ function main_controller($scope, $http) {
     c: 0
   };
 
-  $scope.getLorem = function() {
+  $scope.getLorem = function(valid) {
+    if (!valid) return;
     var url = '/api/lorem?p=' + $scope.query.p + '&l=' + $scope.query.l + '&c=' + $scope.query.c;
     console.log(url)
     $http.get(url)
@@ -20,5 +21,5 @@ function main_controller($scope, $http) {
     });
   };
 
-  $scope.getLorem();
+  $scope.getLorem(true);
 }

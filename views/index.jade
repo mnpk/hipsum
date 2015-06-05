@@ -8,20 +8,28 @@ block content
       h2 한글 로렘 입숨
     div.panel.panel-transparent.col-sm-4
       div.panel-body
-        form
-          div.form-group
+        form(name="theform")
+          div.form-group(ng-class="{'has-error': theform.p.$invalid}")
             label.control-label 문단 수
-            input(type='number' ng-model='query.p' ng-change='getLorem()').form-control
-          div.form-group
+            input(type='number' name='p' ng-model='query.p' min="1" max="99" required ng-change='getLorem(theform.$valid)').form-control
+            div(ng-show='theform.p.$invalid')
+              p
+                div.glyphicon.glyphicon-ban-circle
+                |  1~99 사이의 수를 입력해주세요.
+          div.form-group(ng-class="{'has-error': theform.l.$invalid}")
             label.control-label 문단 길이
-            input(type='number' ng-model='query.l' ng-change='getLorem()').form-control
+            input(type='number' name='l' ng-model='query.l' min='1' max='999' required ng-change='getLorem(theform.$valid)').form-control
+            div(ng-show='theform.l.$invalid')
+              p
+                div.glyphicon.glyphicon-ban-circle
+                |  1~999 사이의 수를 입력해주세요.
           div.form-group
             div.checkbox
               label
-                input(type='checkbox' ng-model='query.c' ng-true-value='1' ng-false-value='0' ng-change='getLorem()')
+                input(type='checkbox' ng-model='query.c' ng-true-value='1' ng-false-value='0' ng-change='getLorem(theform.$valid)')
                 ??
           div.form-group
-            button(ng-click='getLorem()').btn.btn-success
+            button(ng-click='getLorem(theform.$valid)').btn.btn-success
               span.glyphicon.glyphicon-repeat  새로고침
     div.col-sm-8
       div.row

@@ -34,3 +34,10 @@ a {
   margin: 0 3px;
   float: right;
 }
+
+.has-error {
+  color: #FFC0C0 !important; 
+}
+.has-error label {
+  color: #FFC0C0 !important; 
+}
